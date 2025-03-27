@@ -1,3 +1,73 @@
-﻿/src/.vs/ECommerceMicroservices/CopilotIndices/0.2.1653.9816/SemanticSymbols.db-shm
-/src/.vs/ECommerceMicroservices/CopilotIndices/0.2.1653.9816/SemanticSymbols.db
-/src/.vs/ECommerceMicroservices/CopilotIndices/0.2.1653.9816/SemanticSymbols.db-wal
+﻿# Visual Studio specific files
+.vs/
+*.user
+*.suo
+*.cache
+*.db
+*.opendb
+*.VC.db
+
+# Build output
+bin/
+obj/
+out/
+Debug/
+Release/
+
+# .NET Core & .NET 5+ dependencies
+*.dll
+*.exe
+*.pdb
+*.log
+*.vshost.*
+*.runtimeconfig.json
+*.deps.json
+
+# Rider-specific
+.idea/
+*.sln.iml
+
+# User-specific settings
+*.rsuser
+*.sln.docstates
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+project.lock.json
+project.assets.json
+
+# Logs
+logs/
+*.log
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Entity Framework Migrations (if using local DB)
+Migrations/
+
+# ASP.NET Identity database
+App_Data/
+app.db
+app.config
+
+# Coverage & Reports
+coverage/
+*.coverage
+*.coveragexml
+*.testresults
+TestResults/
+.trx
+coverage.opencover.xml
+
+# Docker
+**/Dockerfile
+**/docker**
+
+# Ignore sensitive configuration files
+appsettings.json
+appsettings.*.json
+**/Properties/launchSettings.json
