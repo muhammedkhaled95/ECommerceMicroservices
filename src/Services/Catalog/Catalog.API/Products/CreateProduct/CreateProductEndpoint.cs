@@ -1,8 +1,4 @@
-﻿using Carter;
-using Mapster;
-using MediatR;
-
-namespace Catalog.API.Products.CreateProduct;
+﻿namespace Catalog.API.Products.CreateProduct;
 
 /// <summary>
 /// Represents the request data needed to create a product.
