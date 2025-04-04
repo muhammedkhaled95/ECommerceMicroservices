@@ -1,8 +1,4 @@
-﻿using BuildingBlocks.CQRS;
-using Catalog.API.Models;
-using MediatR;
-
-namespace Catalog.API.Products.CreateProduct;
+﻿namespace Catalog.API.Products.CreateProduct;
 
 // Records are an excellent choice for CQRS Command, Query, and Result objects
 // because they are primarily data carriers and often immutable
@@ -10,7 +6,8 @@ public record CreateProductCommand(string Name, List<string> Category, string De
                                    string ImageFile, decimal Price) : ICommand<CreateProductResult>;
 public record CreateProductResult(Guid Id);
 
-internal class CreateProductCommandHandler : ICommandHandler<CreateProductCommand, CreateProductResult>
+internal class CreateProductCommandHandler(IDocumentSession documentSession) 
+               : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
@@ -25,8 +22,10 @@ internal class CreateProductCommandHandler : ICommandHandler<CreateProductComman
         };
 
         // Save to the database. (Skip for now)
+        documentSession.Store(product);
+        await documentSession.SaveChangesAsync(cancellationToken);
 
         // Return the Result
-        return new CreateProductResult(Guid.NewGuid());
+        return new CreateProductResult(product.Id);
     }
 }
